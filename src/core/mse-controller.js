@@ -618,6 +618,7 @@ class MSEController {
   _onSourceEnded() {
     // fired on endOfStream
     Log.v(this.TAG, "MediaSource onSourceEnded");
+    this._emitter.emit(MSEEvents.SOURCE_ENDED);
   }
 
   _onSourceClose() {
@@ -648,6 +649,7 @@ class MSEController {
         );
       }
     }
+    this._emitter.emit(MSEEvents.SOURCE_CLOSE);
   }
 
   _hasPendingSegments() {
